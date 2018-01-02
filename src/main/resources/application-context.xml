@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        配置bean
+        class : bean的全类名 ， 通过反射的方式在IOC容器中创建Bean , 所以要求Bean中必须有无参构造器
+        id : 表示容器中的bean , id必须为唯一
+    -->
+    <bean id="User" class="com.zeno.bean.User">
+        <!--属性注入-->
+        <property name="name" value="zeno"/>
+    </bean>
+
+    <!--
+        配置构造器注入
+    -->
+    <bean id="book" class="com.zeno.bean.Book">
+        <!--构造器注入-->
+        <constructor-arg value="Android NDK开发之旅" type="java.lang.String"/>
+        <constructor-arg value="zeno" type="java.lang.String"/>
+        <constructor-arg value="30" type="java.lang.Double"/>
+    </bean>
+
+    <bean id="book2" class="com.zeno.bean.Book">
+        <!--构造器注入-->
+        <!--
+            重载构造器 ， 可以通过指定参数类型来区分 , index表示参数的索引 ， 索引和类型可以混合使用
+        -->
+        <constructor-arg value="Android开发艺术探索" index="0"/>
+        <constructor-arg value="任玉刚" index="1"/>
+        <constructor-arg value="30000" type="int"/>
+    </bean>
+
+</beans>
