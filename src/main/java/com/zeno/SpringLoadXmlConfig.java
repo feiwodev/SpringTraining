@@ -21,5 +21,9 @@ public class SpringLoadXmlConfig {
 
         Book book2 = (Book) context.getBean("book2");
         System.out.println(book2);
+
+        // 注入list
+        User user1 = (User) context.getBean("user2");
+        System.out.println(user1.toString());
     }
 }

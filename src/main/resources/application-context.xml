@@ -18,7 +18,11 @@
     -->
     <bean id="book" class="com.zeno.bean.Book">
         <!--构造器注入-->
-        <constructor-arg value="Android NDK开发之旅" type="java.lang.String"/>
+        <!--属性值，可以使用value属性之外，还可以使用value标签进行赋值-->
+        <!--当内容有特殊字符时 ， 需要使用<![CDATA[xxxx]]> 来进行包含-->
+        <constructor-arg type="java.lang.String">
+            <value><![CDATA[<Android NDK开发之旅>]]></value>
+        </constructor-arg>
         <constructor-arg value="zeno" type="java.lang.String"/>
         <constructor-arg value="30" type="java.lang.Double"/>
     </bean>
@@ -33,4 +37,29 @@
         <constructor-arg value="30000" type="int"/>
     </bean>
 
+
+    <bean id="user2" class="com.zeno.bean.User">
+        <property name="name" value="gorden"/>
+        <!--注入List-->
+        <property name="books">
+            <list>
+                <!--匿名bean-->
+                <bean class="com.zeno.bean.Book">
+                    <constructor-arg value="国富论"/>
+                    <constructor-arg value="斯密斯"/>
+                    <constructor-arg value="20" type="java.lang.Double"/>
+                </bean>
+                <!--引用外部bean-->
+                <ref bean="book"/>
+                <ref bean="book2"/>
+            </list>
+        </property>
+        <!--注入map-->
+        <property name="address">
+            <map>
+                <entry key="home" value="湖南·常德"/>
+                <entry key="job" value="湖南·长沙"/>
+            </map>
+        </property>
+    </bean>
 </beans>
