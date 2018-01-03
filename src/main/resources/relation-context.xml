@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--
+        使用p命名空间，可以简化属性注入标签
+    -->
+    <bean id="music" class="com.zeno.bean.Music" p:name="长生诀" p:song="排骨教主"/>
+
+    <!--bean继承-->
+    <bean id="music2" parent="music" p:name="我的世界"/>
+
+    <!--
+        将bean模版化 ， 使用抽象属性abstract="true"
+        抽象bean无法实例化，抽象bean可以有class ， 也可以没有class
+    -->
+    <bean id="absMusic" abstract="true" p:name="我的梦" p:song="张靓颖"/>
+
+    <!--继承抽象bean-->
+    <bean id="music3" parent="absMusic" class="com.zeno.bean.Music"/>
+
+    <!--带class抽象bean-->
+    <bean id="music4" class="com.zeno.bean.Music" abstract="true" p:name="你的样子" p:song="张杰"/>
+
+    <!--替换class 如果子bean中与父bean中的属性名一致，则会沿用父bean的属性值-->
+    <bean id="disc" parent="music4" class="com.zeno.bean.Disc" p:publish="滚石唱片"/>
+</beans>

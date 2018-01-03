@@ -12,6 +12,7 @@
         class : bean的全类名 ， 通过反射的方式在IOC容器中创建Bean , 所以要求Bean中必须有无参构造器
         id : 表示容器中的bean , id必须为唯一
     -->
+
     <bean id="User" class="com.zeno.bean.User">
         <!--属性注入-->
         <property name="name" value="zeno"/>
@@ -93,4 +94,5 @@
         <entry key="home" value="湖南·常德"/>
         <entry key="job" value="广东·深圳"/>
     </util:map>
+
 </beans>

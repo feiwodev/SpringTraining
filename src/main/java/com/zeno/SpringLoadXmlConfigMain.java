@@ -5,7 +5,7 @@ import com.zeno.bean.User;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-public class SpringLoadXmlConfig {
+public class SpringLoadXmlConfigMain {
 
     public static void main(String[] args) {
         // ApplicationContext 代表IOC容器
