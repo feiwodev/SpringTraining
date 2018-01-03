@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+       xmlns:util="http://www.springframework.org/schema/util"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/util
+       http://www.springframework.org/schema/util/spring-util-4.0.xsd">
 
     <!--
         配置bean
@@ -62,4 +66,31 @@
             </map>
         </property>
     </bean>
+
+    <bean id="user3" class="com.zeno.bean.User">
+        <property name="name" value="lily"/>
+        <!--引用外部独立的list-->
+        <property name="books" ref="books"/>
+        <!--外部引入map-->
+        <property name="address" ref="address"/>
+    </bean>
+
+    <!--外部list bean-->
+    <util:list id="books">
+        <!--匿名bean-->
+        <bean class="com.zeno.bean.Book">
+            <constructor-arg value="平凡的世界"/>
+            <constructor-arg value="路遥"/>
+            <constructor-arg value="5000" type="int"/>
+        </bean>
+        <!--引用外部bean-->
+        <ref bean="book"/>
+        <ref bean="book2"/>
+    </util:list>
+
+    <!--外部map bean-->
+    <util:map id="address">
+        <entry key="home" value="湖南·常德"/>
+        <entry key="job" value="广东·深圳"/>
+    </util:map>
 </beans>

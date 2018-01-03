@@ -25,5 +25,10 @@ public class SpringLoadXmlConfig {
         // 注入list
         User user1 = (User) context.getBean("user2");
         System.out.println(user1.toString());
+
+        // 外部引入list
+        User user3 = (User) context.getBean("user3");
+        System.out.println(user3);
+
     }
 }
