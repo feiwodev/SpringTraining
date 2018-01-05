@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+
+        <bean id="person" class="com.zeno.bean.Person">
+            <property name="name" value="qiqi"/>
+            <property name="age" value="20"/>
+            <!--spel表达式，可以直接赋值基本数据类型与引用类型都可-->
+            <property name="info" value="#{'like music and movie'}"/>
+        </bean>
+
+        <bean id="person2" class="com.zeno.bean.Person">
+            <property name="name" value="zeno"/>
+            <property name="age" value="19"/>
+        </bean>
+
+        <bean id="person3" parent="person2">
+            <!--spel表达式，可以进行基本的运算与逻辑判断-->
+            <property name="info" value="#{person2.age > 18 ? 'perspn2 你成年了' : 'perspn2 你还小'}"/>
+        </bean>
+</beans>
