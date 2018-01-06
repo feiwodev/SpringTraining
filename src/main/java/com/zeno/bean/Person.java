@@ -39,4 +39,22 @@ public class Person {
                 ", info='" + info + '\'' +
                 '}';
     }
+
+    public Person() {
+        System.out.println("Person constructor ...");
+    }
+
+    /**
+     * init method
+     */
+    public void init() {
+        System.out.println("Person init ...");
+    }
+
+    /**
+     * destroy method
+     */
+    public void destroy(){
+        System.out.println("Person destroy ...");
+    }
 }

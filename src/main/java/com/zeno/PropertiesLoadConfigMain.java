@@ -1,5 +1,6 @@
-package com.zeno.bean;
+package com.zeno;
 
+import com.zeno.bean.DataSource;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
